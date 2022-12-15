@@ -1,6 +1,7 @@
 <p>
-    <a href="../index.php" type="button" class="btn btn-sm btn-primary" style="margin-top: 20px; display: inline-block;">Logout</a>
+    
     <a href="../../controllers/searchCustomer.php" type="button" class="btn btn-sm btn-primary" style="margin-top: 20px; display: inline-block;">Manage Customers</a>
+    <a href="../index.php" type="button" class="btn btn-sm btn-danger " style="margin: 20px 0px 0px 1000px; display: inline-block;">Logout</a>
 </p>
 <h1>Products Management</h1>
 
@@ -10,12 +11,11 @@
 
 <form>
     <div class="input-group mb-3">
-        <input type="text" class="form-control" placeholder="Search Product" name="search">
+        <input type="text" class="form-inline my-2 my-lg-0" placeholder="Search Product" name="search">
         <div class="input-group-append">
-            <button class="btn-btn-outline-secondary" type="submit">Search</button>
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         </div>
     </div>
-
 </form>
 
 
@@ -26,6 +26,7 @@
             <th scope="col">Image</th>
             <th scope="col">Title</th>
             <th scope="col">Price</th>
+            <th scope="col">Is Featured</th>
             <th scope="col">Create Date</th>
             <th scope="col">Actions</th>
         </tr>
@@ -41,6 +42,7 @@
                 </td>
                 <td><?php echo $product['title'] ?></td>
                 <td><?php echo $product['price'] ?></td>
+                <td><?php echo $product['is_featured'] ?></td>
                 <td><?php echo $product['create_date'] ?></td>
                 <td>
                     <a href="../../controllers/updateProduct.php?id=<?php echo $product['id'] ?>" class="btn btn-sm btn-outline-primary">Edit</a>

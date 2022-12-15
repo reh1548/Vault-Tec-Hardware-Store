@@ -20,7 +20,7 @@ $product = $statement->fetch(PDO::FETCH_ASSOC);
 $title = $product['title'];
 $description = $product['description'];
 $price = $product['price'];
-
+$is_featured = $product['is_featured'];
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     require_once "../models/validate_product.php";
@@ -29,11 +29,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $statement = $pdo->prepare("UPDATE products SET title = :title, 
                                         image = :image, 
                                         description = :description, 
-                                        price = :price WHERE id = :id");
+                                        price = :price,
+                                        is_featured = :is_featured WHERE id = :id");
         $statement->bindValue(':title', $title);
         $statement->bindValue(':image', $imagePath);
         $statement->bindValue(':description', $description);
         $statement->bindValue(':price', $price);
+        $statement->bindValue(':is_featured', $is_featured);
         $statement->bindValue(':id', $id);
 
         $statement->execute();

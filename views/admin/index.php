@@ -103,7 +103,7 @@
 		<h1>User Login</h1>
 		<button class="button" style="background-color: #f44336;"><?php include_once '../views/googleLogin/indexGoogle.php' ?></button>
 
-		
+
 	</div>
 
 </body>

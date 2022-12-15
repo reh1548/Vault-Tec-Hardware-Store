@@ -8,7 +8,7 @@
 
 <form method="post" enctype="multipart/form-data">
     <?php if ($product['image']) : ?>
-        <img src="../<?php echo $product['image'] ?>" class="product-img-view">
+        <img src="../public/<?php echo $product['image'] ?>" class="product-img-view">
     <?php endif; ?>
     <div class="form-group">
         <label>Product Image</label><br>
@@ -25,6 +25,10 @@
     <div class="form-group">
         <label>Product price</label>
         <input type="number" step=".01" name="price" class="form-control" value="<?php echo $price ?>">
+    </div>
+    <div class="form-group">
+        <label>Is product featured?</label>
+        <input type="number" min="0" max="1" name="is_featured" class="form-control" value="1">
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>

@@ -10,11 +10,9 @@
 </head>
 
 <body>
-  <img src="<?= $userinfo['picture'] ?>" alt="" width="90px" height="90px">
   <ul>
     <li>Full Name: <?= $userinfo['full_name'] ?></li>
     <li>Email Address: <?= $userinfo['email'] ?></li>
-    <li>Gender: <?= $userinfo['gender'] ?></li>
     <li><a href="logoutGoogle.php">Logout</a></li>
   </ul>
 </body>
