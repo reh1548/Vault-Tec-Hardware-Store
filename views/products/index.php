@@ -1,6 +1,7 @@
 <p>
     
     <a href="../../controllers/searchCustomer.php" type="button" class="btn btn-sm btn-primary" style="margin-top: 20px; display: inline-block;">Manage Customers</a>
+    <a href="../../controllers/searchOrder.php" type="button" class="btn btn-sm btn-primary" style="margin-top: 20px; display: inline-block;">Manage Orders</a>
     <a href="../index.php" type="button" class="btn btn-sm btn-danger " style="margin: 20px 0px 0px 1000px; display: inline-block;">Logout</a>
 </p>
 <h1>Products Management</h1>

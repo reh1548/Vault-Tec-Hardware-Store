@@ -3,4 +3,4 @@
 session_start();
 unset($_SESSION['user_token']);
 session_destroy();
-header("Location: indexCartController.php");
+header("Location: ../public/index.php");

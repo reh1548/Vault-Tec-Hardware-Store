@@ -11,7 +11,9 @@ if (isset($_GET['code'])) {
       'email' => $google_account_info['email'],
       'first_name' => $google_account_info['givenName'],
       'last_name' => $google_account_info['familyName'],
+      'gender' => $google_account_info['gender'],
       'full_name' => $google_account_info['name'],
+      'picture' => $google_account_info['picture'],
       'verifiedEmail' => $google_account_info['verifiedEmail'],
       'token' => $google_account_info['id'],
     ];
@@ -25,7 +27,7 @@ if (isset($_GET['code'])) {
       $token = $userinfo['token'];
     } else {
       // user is not exists
-      $sql = "INSERT INTO users (email, first_name, last_name, full_name, verifiedEmail, token) VALUES ('{$userinfo['email']}', '{$userinfo['first_name']}', '{$userinfo['last_name']}', '{$userinfo['full_name']}', '{$userinfo['verifiedEmail']}', '{$userinfo['token']}')";
+      $sql = "INSERT INTO users (email, first_name, last_name, gender, full_name, picture, verifiedEmail, token) VALUES ('{$userinfo['email']}', '{$userinfo['first_name']}', '{$userinfo['last_name']}', '{$userinfo['gender']}', '{$userinfo['full_name']}', '{$userinfo['picture']}', '{$userinfo['verifiedEmail']}', '{$userinfo['token']}')";
       $result = mysqli_query($conn, $sql);
       if ($result) {
         $token = $userinfo['token'];
@@ -37,6 +39,10 @@ if (isset($_GET['code'])) {
   
     // save user data into session
     $_SESSION['user_token'] = $token;
+    $_SESSION['firstN'] = $userinfo['first_name'];
+    $_SESSION['lastN'] = $userinfo['last_name'];
+    $_SESSION['fullN'] = $userinfo['full_name'];
+    $_SESSION['emaiL'] = $userinfo['email'];
   } else {
     if (!isset($_SESSION['user_token'])) {
       header("Location: ../public/index.php");

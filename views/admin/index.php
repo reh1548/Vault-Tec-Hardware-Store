@@ -96,7 +96,7 @@
 			<input class="button" type="submit" name="login" value="Sign In">
 		</div>
 	</form>
-<!-- 
+
 	<div class="login-box" style="margin-left: 170px;">
 
 
@@ -104,7 +104,7 @@
 		<button class="button" style="background-color: #f44336;"><?php include_once '../views/googleLogin/indexGoogle.php' ?></button>
 
 
-	</div> -->
+	</div>
 
 </body>
 

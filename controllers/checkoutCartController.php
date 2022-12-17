@@ -24,7 +24,6 @@ $metaDesc = 'Vault-Tec Hardware Store checkout page with Validation';
 
 include('../views/partials/headerCart.php');
 ?>
-
 <?php include('../views/cart/checkoutCart.php');?>
 
 <?php include('../views/partials/footerCart.php'); ?>

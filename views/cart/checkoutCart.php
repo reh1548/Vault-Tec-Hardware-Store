@@ -1,7 +1,3 @@
-<!-- <?php 
-echo "<pre>";
-echo var_dump($userinfo);
-echo "</pre>"; ?> -->
 
 <div class="row mt-3">
   <div class="col-md-4 order-md-2 mb-4">
@@ -15,7 +11,7 @@ echo "</pre>"; ?> -->
       $totalCounter = 0;
 
 
-      
+
       // $totalCounter = 0;
       // $itemCounter = 0;
       // foreach($_SESSION['cart_items'] as $key => $item){                    
@@ -29,7 +25,7 @@ echo "</pre>"; ?> -->
       foreach ($_SESSION['cart_items'] as $cartItem) {
         // $total += intval($cartItem['total_price']);
         $total = $cartItem['product_price'] * $cartItem['qty'];
-        $totalCounter+= $total;
+        $totalCounter += $total;
 
       ?>
         <li class="list-group-item d-flex justify-content-between lh-condensed">
@@ -62,16 +58,17 @@ echo "</pre>"; ?> -->
       <div class="row">
         <div class="col-md-6 mb-3">
           <label for="firstName">First name</label>
-          <input type="text" class="form-control" id="firstName" name="first_name" placeholder="First Name" value="<?php echo (isset($fnameValue) && !empty($fnameValue)) ? $fnameValue : '' ?>"></div>
+          <input type="text" class="form-control" id="firstName" name="first_name" placeholder="First Name" value="<?php echo $_SESSION['firstN'] ?>">
+        </div>
         <div class="col-md-6 mb-3">
           <label for="lastName">Last name</label>
-          <input type="text" class="form-control" id="lastName" name="last_name" placeholder="Last Name" value="<?php echo (isset($lnameValue) && !empty($lnameValue)) ? $lnameValue : '' ?>">
+          <input type="text" class="form-control" id="lastName" name="last_name" placeholder="Last Name" value="<?php echo $_SESSION['lastN'] ?>">
         </div>
       </div>
 
       <div class="mb-3">
         <label for="email">Email</label>
-        <input type="" class="form-control" id="email" name="email" placeholder="<?php echo (isset($emailValue) && !empty($emailValue)) ? $emailValue : '' ?>" value="">
+        <input type="" class="form-control" id="email" name="email" placeholder="<?php echo $_SESSION['emaiL'] ?>" value="">
       </div>
 
       <div class="mb-3">
@@ -126,6 +123,8 @@ echo "</pre>"; ?> -->
 
       <hr class="mb-4">
       <button class="btn btn-primary btn-lg btn-block" type="submit" name="submit" value="submit">Continue to checkout</button>
+
+
     </form>
   </div>
 </div>

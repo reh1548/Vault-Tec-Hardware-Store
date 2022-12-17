@@ -1,6 +1,5 @@
 <?php
 session_start();
-
 if(isset($_POST['action']) && $_POST['action'] == 'update-qty')
 {
     $sessionItem = $_POST['itemID'];

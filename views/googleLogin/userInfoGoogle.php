@@ -15,6 +15,8 @@
     <li>Email Address: <?= $userinfo['email'] ?></li>
     <li><a href="logoutGoogle.php">Logout</a></li>
   </ul>
+
+  
 </body>
 
 </html>

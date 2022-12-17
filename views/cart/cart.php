@@ -49,7 +49,6 @@
                     </tr>
                 <?php }?>
                 <tr class="border-top border-bottom">
-                    <td><button class="btn btn-danger btn-sm" id="emptyCart">Clear Cart</button></td>
                     <td></td>
                     <td>
                         <strong>
