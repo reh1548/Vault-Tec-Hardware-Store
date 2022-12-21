@@ -3,6 +3,7 @@
 if (isset($_SESSION['firstN'], $_SESSION['lastN'], $_SESSION['emaiL'], $_POST['address'], $_POST['country'], $_POST['state'], $_POST['zipcode']) && !empty($_POST['address']) && !empty($_POST['country']) && !empty($_POST['state']) && !empty($_POST['zipcode'])) {
   $firstName = $_SESSION['firstN'];
 
+
   if (filter_var($_SESSION['emaiL'], FILTER_VALIDATE_EMAIL) == false) {
     $errorMsg[] = 'Please enter valid email address';
   } else {
@@ -17,7 +18,7 @@ if (isset($_SESSION['firstN'], $_SESSION['lastN'], $_SESSION['emaiL'], $_POST['a
     $state      = validate_input($_POST['state']);
     $zipcode    = validate_input($_POST['zipcode']);
 
-    $sql = 'insert into orders (first_name, last_name, email, address, address2, country, state, zipcode, order_status,created_at, updated_at) values (:fname, :lname, :email, :address, :address2, :country, :state, :zipcode, :order_status,:created_at, :updated_at)';
+    $sql = 'insert into stripe_test (first_name, last_name, email, address, address2, country, state, zipcode, total_price, order_status, created_at, updated_at) values (:fname, :lname, :email, :address, :address2, :country, :state, :zipcode, :total_price, :order_status, :created_at, :updated_at)';
     $statement = $pdo->prepare($sql);
     $params = [
       'fname' => $firstName,
@@ -28,18 +29,18 @@ if (isset($_SESSION['firstN'], $_SESSION['lastN'], $_SESSION['emaiL'], $_POST['a
       'country' => $country,
       'state' => $state,
       'zipcode' => $zipcode,
+      'total_price' => $_SESSION['checkout_total_price'],
       'order_status' => 'confirmed',
       'created_at' => date('Y-m-d H:i:s'),
       'updated_at' => date('Y-m-d H:i:s')
     ];
-
     $statement->execute($params);
     if ($statement->rowCount() == 1) {
 
       $getOrderID = $pdo->lastInsertId();
 
       if (isset($_SESSION['cart_items']) || !empty($_SESSION['cart_items'])) {
-        $sqlDetails = 'insert into order_details (order_id, product_id, product_name, product_price, qty, total_price) values(:order_id,:product_id,:product_name,:product_price,:qty,:total_price)';
+        $sqlDetails = 'insert into detail_order (order_id, product_id, product_name, product_price, qty, total_price) values(:order_id, :product_id, :product_name, :product_price, :qty, :total_price)';
         $orderDetailStmt = $pdo->prepare($sqlDetails);
 
         $totalPrice = 0;
@@ -58,7 +59,7 @@ if (isset($_SESSION['firstN'], $_SESSION['lastN'], $_SESSION['emaiL'], $_POST['a
           $orderDetailStmt->execute($paramOrderDetails);
         }
 
-        $updateSql = 'update orders set total_price = :total where id = :id';
+        $updateSql = 'update stripe_test set total_price = :total where id = :id';
 
         $rs = $pdo->prepare($updateSql);
         $prepareUpdate = [
@@ -67,10 +68,14 @@ if (isset($_SESSION['firstN'], $_SESSION['lastN'], $_SESSION['emaiL'], $_POST['a
         ];
 
         $rs->execute($prepareUpdate);
-        unset($_SESSION['cart_items']);
-        $_SESSION['confirm_order'] = true;
-        header('location:indexCartController.php');
-        exit();
+        if (isset($_POST['card'])) {
+          header('location:../stripe/index.php');
+        } else {
+          unset($_SESSION['cart_items']);
+          $_SESSION['confirm_order'] = true;
+          header('location: indexCartController.php');
+          exit();
+        }
       }
     } else {
       $errorMsg[] = 'Unable to save your order. Please try again';

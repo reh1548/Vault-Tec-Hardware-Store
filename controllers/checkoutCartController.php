@@ -12,7 +12,7 @@ $cartItemCount = count($_SESSION['cart_items']);
 
 //pre($_SESSION);
 
-if (isset($_POST['submit'])) {
+if (isset($_POST['submit']) || isset($_POST['card'])) {
 
     require_once '../models/validatecheckoutCart.php';
 

@@ -8,7 +8,7 @@ if (!$id) {
     exit;
 }
 
-$statement = $pdo->prepare('DELETE FROM orders WHERE id = :id');
+$statement = $pdo->prepare('DELETE FROM stripe_test WHERE id = :id');
 $statement->bindValue(':id', $id);
 $statement->execute();
 

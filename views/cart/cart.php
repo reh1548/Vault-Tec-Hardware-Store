@@ -41,7 +41,7 @@
                             $<?php echo $item['product_price'];?>
                         </td>
                         <td>
-                            <input type="number" name="" class="cart-qty-single" data-item-id="<?php echo $key?>" value="<?php echo $item['qty'];?>" min="1" max="1000" >
+                            <p class="cart-qty-single" data-item-id="<?php echo $key?>" value="<?php echo $item['qty'];?>"><?php echo $item['qty'];?></p>
                         </td>
                         <td>
                             <?php echo $total;?>
@@ -56,7 +56,7 @@
                                 echo ($itemCounter==1)?$itemCounter.' item':$itemCounter.' items'; ?>
                         </strong>
                     </td>
-                    <td><strong>$<?php echo $totalCounter;?></strong></td>
+                    <td><strong>$<?php echo $totalCounter; $_SESSION['checkout_total_price']=$totalCounter?></strong></td>
                 </tr> 
                 </tr>
             </tbody> 

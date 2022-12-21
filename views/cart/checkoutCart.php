@@ -122,7 +122,9 @@
       </div> -->
 
       <hr class="mb-4">
-      <button class="btn btn-primary btn-lg btn-block" type="submit" name="submit" value="submit">Continue to checkout</button>
+      <button class="btn btn-primary btn-lg btn-block" type="submit" name="submit" value="submit">Cash on Delivery</button>
+      <button class="btn btn-danger btn-lg btn-block" type="submit" name="card" value="card">Pay With Card</button>
+      <!-- <a href="../stripe/index.php" class="btn btn-danger btn-lg btn-block" type="submit" name="card" value="card">Pay With Card</a> -->
 
 
     </form>

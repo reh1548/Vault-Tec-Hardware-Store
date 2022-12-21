@@ -3,10 +3,10 @@
 require_once "../database.php";
 $search = $_GET['search'] ?? '';
 if ($search) {
-    $statement = $pdo->prepare('SELECT * FROM orders WHERE first_name LIKE :first_name ORDER BY created_at DESC');
+    $statement = $pdo->prepare('SELECT * FROM stripe_test WHERE first_name LIKE :first_name ORDER BY created_at DESC');
     $statement->bindValue(':first_name', "%$search%");
 } else {
-    $statement = $pdo->prepare('SELECT * FROM orders ORDER BY created_at DESC');
+    $statement = $pdo->prepare('SELECT * FROM stripe_test ORDER BY created_at DESC');
 }
 
 $statement->execute();
