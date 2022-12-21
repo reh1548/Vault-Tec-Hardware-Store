@@ -18,6 +18,7 @@ if(isset($_GET['id']) && !empty($_GET['id']) && is_numeric($_GET['id']))
         $error = '404! No record found';
     }
 
+    
 }
 else
 {

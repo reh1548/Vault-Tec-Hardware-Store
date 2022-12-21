@@ -20,6 +20,7 @@ $product = $statement->fetch(PDO::FETCH_ASSOC);
 $title = $product['title'];
 $description = $product['description'];
 $price = $product['price'];
+
 $is_featured = $product['is_featured'];
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 

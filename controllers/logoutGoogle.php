@@ -4,3 +4,4 @@ session_start();
 unset($_SESSION['user_token']);
 session_destroy();
 header("Location: ../public/index.php");
+

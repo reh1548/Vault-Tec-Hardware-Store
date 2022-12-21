@@ -20,6 +20,7 @@ if ($image && $image['tmp_name']) {
     move_uploaded_file($image['tmp_name'], '../public/'.$imagePath);
 }
 
+
 if (!$title) {
     $errors[] = 'Product title is required';
 }

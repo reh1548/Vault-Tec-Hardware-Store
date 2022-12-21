@@ -25,3 +25,4 @@ $password = "";
 $database = "vault-tech hardware store";
 
 $conn = mysqli_connect($hostname, $username, $password, $database);
+

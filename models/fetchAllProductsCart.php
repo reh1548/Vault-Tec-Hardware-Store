@@ -10,3 +10,4 @@ if ($search) {
 
 $statement->execute();
 $products = $statement->fetchAll(PDO::FETCH_ASSOC);
+

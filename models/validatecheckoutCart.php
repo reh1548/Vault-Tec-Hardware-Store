@@ -18,6 +18,7 @@ if (isset($_SESSION['firstN'], $_SESSION['lastN'], $_SESSION['emaiL'], $_POST['a
     $state      = validate_input($_POST['state']);
     $zipcode    = validate_input($_POST['zipcode']);
 
+    
     $sql = 'insert into stripe_test (first_name, last_name, email, address, address2, country, state, zipcode, total_price, order_status, created_at, updated_at) values (:fname, :lname, :email, :address, :address2, :country, :state, :zipcode, :total_price, :order_status, :created_at, :updated_at)';
     $statement = $pdo->prepare($sql);
     $params = [

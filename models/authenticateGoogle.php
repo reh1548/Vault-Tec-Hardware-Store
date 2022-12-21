@@ -36,6 +36,7 @@ if (isset($_GET['code'])) {
         die();
       }
     }
+    
   
     // save user data into session
     $_SESSION['user_token'] = $token;

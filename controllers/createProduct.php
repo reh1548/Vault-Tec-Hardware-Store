@@ -38,3 +38,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <?php include_once '../views/partials/header.php' ?>
 <?php include_once '../views/products/create.php'?>
+
